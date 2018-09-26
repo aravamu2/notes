@@ -1,3 +1,83 @@
+## install git
+
+Check to see if it's already installed: `which git` (tells you where the git program is) or `git --version` (tells you which version you have) or `git --help` or `man git` to get help.
+
+#### install git on Mac OSX:
+
+get homebrew if you don't have it already. check with `which brew`
+install git through homebrew: run `brew install git`
+
+## configure git
+
+run `git config -l` to list the current configuration for git. Most likely, git doesn't know about your name etc. Set it like this, but substitute my info with your own info:
+
+```
+git config --global user.name "Cecile Ane"
+git config --global user.email "cecile.ane@wisc.edu"
+git config --glabal github.user "cecileane"
+git config --global color.ui true
+```
+
+The email above must be the email that you used to create your github account. The last line is to get colors in the terminal when git will to show changes (red for deletions, green for modifications).
+
+Then run `git config -l` again to check that your git configuration is good.
+
+##### Reference
+
+<https://github.com/UWMadison-computingtools-master/general-info/blob/master/git.md>
+
+## submit assignment
+
+These steps are to broadcast your work to github, to submit it there.
+
+- save all your homework files locally
+
+- commit the files that you want to submit: run `git add filename` for every new file filename that you created. run `git commit -m "commit message here"`
+
+##### example 
+
+**you created a directory scripts/ in which you created a file `normalizeFileNames.sh`**
+**you also modified the file readme.md that was already existing (and already tracked by git).**
+
+1. commit new file and changes:
+
+```
+git status # gives useful info: read it!
+git add scripts/normalizeFileNames.sh
+git add readme.md
+git status # read! you should see that your work is ready to be committed
+git commit -m "doc in readme, and script to normalize file names"
+git show   # just to check your latest commit. "q" to quit
+run git status to double check: should be all clean
+```
+
+2. push the new commit(s) to your github repo: `run git push`
+
+3. go online to visit your repo on github, refresh the browser and make sure it's all good: click on the files, on the last commit, visit the network page (in "Graphs", then hover on the dots)
+
+After these steps, your work will be visible to the instructor and TA.
+
+4. To submit your work: **open an issue**, **link to the latest commit**, and **tag** me and the TA (@coraallencoleman):
+
+    - 0n github, **click on "Issues"**, **then "New Issue"**. **Name your issue "Mark homework xxx, exercise yyy of firstname-lastname"**, where xxx and yyy are 1, 2, etc. 
+
+    - find the SHA of the latest commit. On github, above the file list, look for "latest commit" followed by 7 numbers/letters. **Right-click to copy the link to this last commit** with its SHA. For example, it might look like this: <https://github.com/UWMadison-computingtools-2018/xxx/commit/0962e0575d>
+
+    - you can also get the SHA from the shell: `git log`, but the first option gives the full link to that particular commit on the github repository.
+
+5. issue description:
+
+- tag me and the TA by including the text @cecileane and @coraallencoleman anywhere in the message
+- paste the revision SHA (link from first step)
+- include comments to help me understand what you did
+- use markdown syntax (this is very important: see grading rubric)
+- click on "preview" to preview your issue (check the link and markdown syntax)
+- submit "new issue". Anyone you tagged will receive an email automatically.
+
+##### Reference
+
+<https://github.com/UWMadison-computingtools-master/general-info#submit-your-assignment>
+
 ## track versions of a project with git
 
 #### create repository
@@ -132,3 +212,6 @@ git status # fastq files not listed anymore. but need to track .gitignore
 git commit -a -m "added .gitignore, to ignore large fastq data files"
 git status # all good
 ```
+##### Reference
+
+<http://cecileane.github.io/computingtools/pages/notes0927.html>
